@@ -1,0 +1,23 @@
+Question 1
+The expression data[1] accesses the element at index 1 in the list [10, 20, 30]
+Therefore the answer is b. 20
+
+Question 2
+The expression data[1:3] slices the list to include elements from index 1 to 3
+Therefore the answer is Letter b. [20, 30]
+
+Question 3
+The expression data.index(20) reverse to the index of the value 20 in the list
+Therefore the answer is Letter a. 1
+
+Question 4
+The expression data + [40, 50] concatenates the original list with [40, 50]
+Therefore the answer is Letter b. [10, 20, 30, 40, 50]
+
+Question 5
+After the statement data[1] = 5, the sequence of the data at index 1 value is replaced by 5
+Therefore the answer is Letter a. [10, 5, 30]
+
+Question 6
+After the statement data.insert(1, 15), the value 15 is inserted at the index 1 of the original value
+Therefore the answer is Letter c. [10, 15, 20, 30]
