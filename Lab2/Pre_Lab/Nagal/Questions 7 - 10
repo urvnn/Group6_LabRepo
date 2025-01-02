@@ -1,0 +1,17 @@
+Question 7 
+The expression <list(info.keys())> will have an output of  ["name", "age"] 
+Therefore the answer is Letter B.
+
+Question 8 
+The expected output will be “none”  because the current dictionary does not include a key name “hobbies”. 
+Since the key does not exist, the default argument is set to None. 
+Therefore, the answer is Letter B.
+
+Question 9 
+The pop method removes an entry by its key and returns the associated value.
+Therefore, the answer is Letter B. 
+
+Question 10 
+Immutable data structures are data structures are data structures that cannot be modified after creation.
+Strings and tuples are examples of such.
+Therefore, the answer is Letter B.
