@@ -15,7 +15,7 @@ def accept(filename):
     return tuple(words)
 
 # Define the path to the 'source' folder
-sourcefolder = "source"
+sourcefolder = "Lab2/Post_Lab/Problem 3/source"
 
 # Load vocabulary from files in the 'source' folder
 articles = accept(os.path.join(sourcefolder, "articles.txt"))
