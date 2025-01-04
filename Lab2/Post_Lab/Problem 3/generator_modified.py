@@ -8,7 +8,7 @@ and vocabulary. Words are chosen at random.
 import random
 import os
 
-def accept(filename):
+def getWords(filename):
     """Reads words from a file and returns them as a tuple."""
     with open(filename, 'r') as file:
         words = [line.strip().upper() for line in file if line.strip()]
@@ -18,10 +18,10 @@ def accept(filename):
 sourcefolder = "Lab2/Post_Lab/Problem 3/source"
 
 # Load vocabulary from files in the 'source' folder
-articles = accept(os.path.join(sourcefolder, "articles.txt"))
-nouns = accept(os.path.join(sourcefolder, "nouns.txt"))
-verbs = accept(os.path.join(sourcefolder, "verbs.txt"))
-prepositions = accept(os.path.join(sourcefolder, "prepositions.txt"))
+articles = getWords(os.path.join(sourcefolder, "articles.txt"))
+nouns = getWords(os.path.join(sourcefolder, "nouns.txt"))
+verbs = getWords(os.path.join(sourcefolder, "verbs.txt"))
+prepositions = getWords(os.path.join(sourcefolder, "prepositions.txt"))
 
 def sentence():
     """Builds and returns a sentence."""
