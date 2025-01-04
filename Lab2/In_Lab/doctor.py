@@ -1,21 +1,15 @@
-"""
-Program: doctor.py
-Author: Ken
-Conducts an interactive session of nondirective psychotherapy.
-"""
-
 import random
 
 hedges = ("Please tell me more.",
           "Many of my patients tell me the same thing.",
-          "Please coninue.")
+          "Please continue.")
 
 qualifiers = ("Why do you say that ",
               "You seem to think that ",
               "Can you explain why ")
 
-replacements = {"I":"you", "me":"you", "my":"your",
-                "we":"you", "us":"you", "mine":"yours"} 
+replacements = {"I": "you", "me": "you", "my": "your",
+                "we": "you", "us": "you", "mine": "yours"}
 
 def reply(sentence):
     """Implements two different reply strategies."""
@@ -32,7 +26,7 @@ def changePerson(sentence):
     replyWords = []
     for word in words:
         replyWords.append(replacements.get(word, word))
-    return " ".join(replyWords) 
+    return " ".join(replyWords)
 
 def main():
     """Handles the interaction between patient and doctor."""
@@ -40,6 +34,9 @@ def main():
     print("What can I do for you?")
     while True:
         sentence = input("\n>> ")
+        if sentence.strip() == "":
+            print("Please say something.")
+            continue
         if sentence.upper() == "QUIT":
             print("Have a nice day!")
             break
@@ -48,4 +45,3 @@ def main():
 # The entry point for program execution
 if __name__ == "__main__":
     main()
-
