@@ -11,10 +11,8 @@ def mode(f):
     for word in words:
         number = theDictionary.get(word, None)
         if number is None:
-            # word entered for the first time
             theDictionary[word] = 1
         else:
-            # word already seen, increment its number
             theDictionary[word] = number + 1
 
     theMaximum = max(theDictionary.values())
