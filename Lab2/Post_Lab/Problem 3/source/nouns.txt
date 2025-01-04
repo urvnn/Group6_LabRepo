@@ -1,0 +1,6 @@
+boy
+girl
+dog
+cat
+house
+car
