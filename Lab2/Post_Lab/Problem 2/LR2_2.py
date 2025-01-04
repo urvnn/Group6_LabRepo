@@ -1,5 +1,6 @@
 def main():
     filename = input("Enter the filename: ")
+    print (filename)
     try:
         with open(filename, 'r') as file:
             lines = file.readlines()
