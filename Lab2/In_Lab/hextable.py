@@ -13,8 +13,21 @@ def convert(number, table):
       binary = table[digit] + binary
    return binary
 
-def switch (order):
+def switch(order):
+   order = order.upper()
    return order[::-1]
 
-order = input("Enter a hexadecimal number: ")
-print(convert(switch(order), hexToBinaryTable))
+def is_valid_hex(number):
+   valid_hex_digits = set("0123456789ABCDEF")
+   for digit in number:
+      if digit not in valid_hex_digits:
+         return False
+   return True
+
+def main():
+   order = input("Enter a hexadecimal number: ").strip()
+   if is_valid_hex(order):
+      print(convert(switch(order), hexToBinaryTable))
+   else:
+      print("Error: Invalid hexadecimal number.")
+
