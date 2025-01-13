@@ -1,0 +1,39 @@
+Answers to Questions 
+
+1 a. is owned by a particular instance of a class and no other 
+
+ 
+
+2 c. self 
+
+ 
+
+3 b. set the instance variables to initial values 
+
+ 
+
+4 b. always must have at least one parameter name, called self 
+
+ 
+
+5 b. the entire class in which it is introduced 
+
+ 
+
+6 b. when it can no longer be referenced anywhere in a program 
+
+ 
+
+7 a. all instances of a class have in common 
+
+ 
+
+8 b. A.init(self) 
+
+ 
+
+9 b. pickle them using the pickle function dump 
+
+ 
+
+10 a. has a single header but different bodies in different classes 
