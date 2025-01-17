@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>100</x>
+      <y>50</y>
+      <w>300</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>Rational
+--
+- numer : int
+- denom : int
+--
++ Rational(numer : int, denom : int)
++ numerator() : int
++ denominator() : int
++ __str__() : String
++ _reduce() : void
++ _gcd(a : int, b : int) : int
++ __add__(other : Rational) : Rational
++ __lt__(other : Rational) : bool
++ __ge__(other : Rational) : bool
++ __eq__(other : Rational) : bool
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
