@@ -26,3 +26,25 @@
         </panel_attributes>
         <additional_attributes/>
     </element>
+
+    <!-- Relationship -->
+    <element>
+        <type>Relation</type>
+        <coordinates>
+            <x>200</x>
+            <y>100</y>
+            <w>50</w>
+            <h>50</h>
+        </coordinates>
+        <panel_attributes>
+            &lt;&lt;contains&gt;&gt;
+        </panel_attributes>
+        <additional_attributes>
+            <start_element>SavingsAccount</start_element>
+            <end_element>Bank</end_element>
+            <line>solid</line>
+            <arrow_start>none</arrow_start>
+            <arrow_end>open</arrow_end>
+        </additional_attributes>
+    </element>
+</diagram>
