@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3">
+    <element>
+        <type>UMLClass</type>
+        <coordinates>
+            <x>50</x>
+            <y>50</y>
+            <w>120</w>
+            <h>160</h>
+        </coordinates>
+        <panel_attributes>
+            Card
+            --
+            - rank: int
+            - suit: str
+            --
+            + __init__(rank: int, suit: str)
+            + __str__(): str
+        </panel_attributes>
+        <additional_attributes/>
+    </element>
+    <element>
+        <type>UMLClass</type>
+        <coordinates>
+            <x>250</x>
+            <y>50</y>
+            <w>140</w>
+            <h>200</h>
+        </coordinates>
+        <panel_attributes>
+            Deck
+            --
+            - cards: list[Card]
+            --
+            + __init__()
+            + shuffle()
+            + deal(): Card
+            + __len__(): int
+            + __str__(): str
+        </panel_attributes>
+        <additional_attributes/>
+    </element>
+    <element>
+        <type>Relation</type>
+        <coordinates>
+            <x>170</x>
+            <y>100</y>
+            <w>50</w>
+            <h>50</h>
+        </coordinates>
+        <panel_attributes>
+            &lt;&lt;contains&gt;&gt;
+        </panel_attributes>
+        <additional_attributes>
+            <start_element>Card</start_element>
+            <end_element>Deck</end_element>
+            <line>solid</line>
+            <arrow_start>none</arrow_start>
+            <arrow_end>open</arrow_end>
+        </additional_attributes>
+    </element>
+</diagram>
