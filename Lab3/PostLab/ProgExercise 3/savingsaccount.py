@@ -1,58 +1,62 @@
-class Bank:
-    """This class represents a bank as a collection of savings accounts."""
+class SavingsAccount:
+    """This class represents a savings account
+    with the owner's name, PIN, and balance."""
 
-    def __init__(self, fileName=None):
-        self.accounts = {}
-        self.fileName = fileName
-        if fileName is not None:
-            fileObj = open(fileName, 'rb')
-            while True:
-                try:
-                    account = pickle.load(fileObj)
-                    self.add(account)
-                except Exception:
-                    fileObj.close()
-                    break
+    RATE = 0.02    # Single rate for all accounts
+
+    def __init__(self, name, pin, balance=0.0):
+        self.name = name
+        self.pin = pin
+        self.balance = balance
 
     def __str__(self):
-        """Returns the string representation of the bank with accounts sorted by name."""
-        sorted_accounts = sorted(self.accounts.values())  # Sort accounts by name
-        return "\n".join(map(str, sorted_accounts))
+        """Returns the string representation."""
+        result = 'Name:    ' + self.name + '\n'
+        result += 'PIN:     ' + self.pin + '\n'
+        result += 'Balance: ' + str(self.balance)
+        return result
 
-    def makeKey(self, name, pin):
-        """Returns a key for the account."""
-        return name + "/" + pin
+    def getBalance(self):
+        """Returns the current balance."""
+        return self.balance
 
-    def add(self, account):
-        """Adds the account to the bank."""
-        key = self.makeKey(account.getName(), account.getPin())
-        self.accounts[key] = account
+    def getName(self):
+        """Returns the current name."""
+        return self.name
 
-    def remove(self, name, pin):
-        """Removes the account from the bank."""
-        key = self.makeKey(name, pin)
-        return self.accounts.pop(key, None)
+    def getPin(self):
+        """Returns the current pin."""
+        return self.pin
 
-    def get(self, name, pin):
-        """Returns the account from the bank."""
-        key = self.makeKey(name, pin)
-        return self.accounts.get(key, None)
+    def deposit(self, amount):
+        """Deposits an amount into the balance."""
+        self.balance += amount
+        return None
+
+    def withdraw(self, amount):
+        """Withdraws an amount from the balance."""
+        if amount < 0:
+            return "Amount must be >= 0"
+        elif self.balance < amount:
+            return "Insufficient funds"
+        else:
+            self.balance -= amount
+            return None
 
     def computeInterest(self):
-        """Computes and returns the interest on all accounts."""
-        total = 0
-        for account in self.accounts.values():
-            total += account.computeInterest()
-        return total
+        """Computes, deposits, and returns the interest."""
+        interest = self.balance * SavingsAccount.RATE
+        self.deposit(interest)
+        return interest
 
-    def save(self, fileName=None):
-        """Saves pickled accounts to a file."""
-        if fileName is not None:
-            self.fileName = fileName
-        elif self.fileName is None:
-            return
-        fileObj = open(self.fileName, 'wb')
-        for account in self.accounts.values():
-            pickle.dump(account, fileObj)
-        fileObj.close()
+    def __lt__(self, other):
+        """Compares accounts by name."""
+        return self.name < other.name
 
+    def __eq__(self, other):
+        """Checks equality of accounts by name."""
+        return self.name == other.name
+
+    def __gt__(self, other):
+        """Compares accounts by name."""
+        return self.name > other.name
