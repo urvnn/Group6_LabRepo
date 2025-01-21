@@ -1,1 +1,28 @@
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3">
+    <!-- Bank Class -->
+    <element>
+        <type>UMLClass</type>
+        <coordinates>
+            <x>50</x>
+            <y>50</y>
+            <w>200</w>
+            <h>350</h>
+        </coordinates>
+        <panel_attributes>
+            Bank
+            --
+            - accounts: dict
+            - fileName: str | None
+            --
+            + __init__(fileName: str | None)
+            + __str__(): str
+            + makeKey(name: str, pin: str): str
+            + add(account: SavingsAccount)
+            + remove(name: str, pin: str): SavingsAccount | None
+            + get(name: str, pin: str): SavingsAccount | None
+            + computeInterest(): float
+            + save(fileName: str | None)
+        </panel_attributes>
+        <additional_attributes/>
+    </element>
