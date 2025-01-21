@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3">
+    <!-- Bank Class -->
+    <element>
+        <type>UMLClass</type>
+        <coordinates>
+            <x>50</x>
+            <y>50</y>
+            <w>150</w>
+            <h>300</h>
+        </coordinates>
+        <panel_attributes>
+            Bank
+            --
+            - accounts: dict
+            - fileName: str | None
+            --
+            + __init__(fileName: str | None)
+            + __str__(): str
+            + makeKey(name: str, pin: str): str
+            + add(account: SavingsAccount)
+            + remove(name: str, pin: str): SavingsAccount | None
+            + get(name: str, pin: str): SavingsAccount | None
+            + computeInterest(): float
+            + getKeys(): list[str]
+            + save(fileName: str | None)
+        </panel_attributes>
+        <additional_attributes/>
+    </element>
+    
+    <!-- SavingsAccount Class -->
+    <element>
+        <type>UMLClass</type>
+        <coordinates>
+            <x>300</x>
+            <y>50</y>
+            <w>200</w>
+            <h>300</h>
+        </coordinates>
+        <panel_attributes>
+            SavingsAccount
+            --
+            - name: str
+            - pin: str
+            - balance: float
+            - RATE: float = 0.02
+            --
+            + __init__(name: str, pin: str, balance: float = 0.0)
+            + __str__(): str
+            + getBalance(): float
+            + getName(): str
+            + getPin(): str
+            + deposit(amount: float): None | str
+            + withdraw(amount: float): None | str
+            + computeInterest(): float
+        </panel_attributes>
+        <additional_attributes/>
+    </element>
+    
+    <!-- Relationship -->
+    <element>
+        <type>Relation</type>
+        <coordinates>
+            <x>200</x>
+            <y>100</y>
+            <w>50</w>
+            <h>50</h>
+        </coordinates>
+        <panel_attributes>
+            &lt;&lt;contains&gt;&gt;
+        </panel_attributes>
+        <additional_attributes>
+            <start_element>SavingsAccount</start_element>
+            <end_element>Bank</end_element>
+            <line>solid</line>
+            <arrow_start>none</arrow_start>
+            <arrow_end>open</arrow_end>
+        </additional_attributes>
+    </element>
+</diagram>
