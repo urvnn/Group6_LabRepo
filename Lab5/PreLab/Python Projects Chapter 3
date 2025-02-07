@@ -1,0 +1,17 @@
+Hernandez (Python Projects – Chapter 3) 
+
+This chapter introduces relational database concepts and the role of Structured Query Language (SQL) in managing databases. A relational database is a structured system that organizes data into tables, allowing for efficient 
+storage, retrieval, and manipulation. These tables are interconnected through keys, which help maintain relationships between different sets of data. The chapter explains that relational databases are widely used in various 
+applications, from web development to business analytics, because they provide a reliable way to handle large amounts of structured information. 
+
+One of the key topics covered in this chapter is SQL, the standard language used to communicate with relational databases. SQL is divided into two main categories: Data Manipulation Language (DML) and Data Definition 
+Language (DDL). DML commands, such as SELECT, INSERT, UPDATE, and DELETE, allow users to retrieve, add, modify, and remove data within tables. These commands enable dynamic interaction with the database, making it possible 
+to manage records efficiently. On the other hand, DDL commands, including CREATE, ALTER, and DROP, are used to define and modify the database structure itself, such as creating new tables or changing existing ones. 
+Understanding the distinction between DML and DDL is essential for effectively managing a database and ensuring data integrity. 
+
+This chapter highlights the importance of using SQL in Python projects, as Python provides powerful libraries like SQLite, MySQL Connector, and SQLAlchemy, which allow developers to interact with databases seamlessly. 
+By integrating SQL with Python, programmers can build applications that store and process data efficiently, such as inventory systems, customer management software, and data analytics platforms. 
+
+One of the key takeaways from this chapter is how relational databases provide a structured approach to handling information, making data retrieval and updates more reliable. Understanding SQL commands is crucial for 
+anyone working with databases, as they form the backbone of modern data-driven applications. Moving forward, mastering SQL alongside Python will be valuable in building robust and scalable projects that require efficient 
+data management. 
