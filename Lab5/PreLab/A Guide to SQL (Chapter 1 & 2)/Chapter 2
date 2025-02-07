@@ -1,0 +1,21 @@
+Hernandez (A Guide to SQL Chapter 2) 
+
+Chapter 2 focuses on the core principles of database design, particularly in relational databases. It introduces fundamental concepts such as entities, attributes, relationships, functional dependencies, and normalization. 
+Entities represent real-world objects, such as customers, employees, or products, and each entity has attributes that define its properties. Relationships describe how these entities interact with one another, such as a 
+customer placing multiple orders or an employee managing different projects. A relational database organizes data into tables, where each row (tuple) represents a unique record, and each column (attribute) holds specific 
+information about that record. 
+
+A key concept in this chapter is functional dependency, which explains how one attribute determines another. For example, a student's ID number uniquely identifies their name and course details, ensuring data consistency. 
+To maintain accuracy and efficiency, databases use primary keys to uniquely identify records and foreign keys to establish connections between tables. These principles help maintain data integrity and streamline data retrieval processes. 
+
+Another major topic covered in this chapter is normalization, a process that structures a database to reduce redundancy and ensure data is stored logically. Without normalization, databases may contain duplicate 
+information, making updates and modifications difficult. By breaking down data into smaller, related tables, normalization improves efficiency and consistency. While normalization may seem complex, it plays a crucial role 
+in maintaining an organized database, preventing anomalies, and optimizing performance. 
+
+One of the most valuable insights from this chapter is the importance of Entity-Relationship Diagrams (ERDs) in visualizing database structures. ERDs provide a clear representation of how different entities are connected, 
+making it easier to design and understand databases. This visualization is particularly useful in business applications, where sales transactions, customer records, and inventory systems must be linked efficiently for 
+smooth operations. 
+
+Overall, this chapter reinforced the importance of proper database design in ensuring efficient data management. Poorly structured databases can lead to inconsistencies, redundancy, and difficulties in retrieving 
+information. By applying these database principles, it becomes possible to create well-structured, scalable, and easily maintainable databases that support business operations and technological advancements. 
+This knowledge provides a strong foundation for future learning, especially in optimizing databases for real-world applications and improving data management strategies. 
