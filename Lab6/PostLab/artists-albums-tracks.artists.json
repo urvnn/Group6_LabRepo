@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "67af7861dd53c0874b7593a9"
+  },
+  "ArtistId": 1,
+  "Name": "EraserHeads"
+},
+{
+  "_id": {
+    "$oid": "67af7861dd53c0874b7593aa"
+  },
+  "ArtistId": 2,
+  "Name": "Parokya ni Edgar"
+},
+{
+  "_id": {
+    "$oid": "67af7861dd53c0874b7593ab"
+  },
+  "ArtistId": 3,
+  "Name": "Rivermaya"
+}]

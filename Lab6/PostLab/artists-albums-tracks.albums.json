@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "67af7bd7dd53c0874b7593b8"
+  },
+  "AlbumId": 1,
+  "Title": "Ultraelectromagneticpop!",
+  "ArtistID": 1
+},
+{
+  "_id": {
+    "$oid": "67af7d4ddd53c0874b7593bc"
+  },
+  "AlbumId": 2,
+  "Title": "Circus",
+  "ArtistID": 1
+},
+{
+  "_id": {
+    "$oid": "67af7d4ddd53c0874b7593bd"
+  },
+  "AlbumId": 3,
+  "Title": "Halina Sa Parokya",
+  "ArtistID": 2
+},
+{
+  "_id": {
+    "$oid": "67af7d4ddd53c0874b7593be"
+  },
+  "AlbumId": 4,
+  "Title": "Bigotilyo",
+  "ArtistID": 1
+},
+{
+  "_id": {
+    "$oid": "67af7d4ddd53c0874b7593bf"
+  },
+  "AlbumId": 5,
+  "Title": "Buhay",
+  "ArtistID": 3
+},
+{
+  "_id": {
+    "$oid": "67af7d4ddd53c0874b7593c0"
+  },
+  "AlbumId": 6,
+  "Title": "Tuloy Ang Ligaya",
+  "ArtistID": 3
+}]
