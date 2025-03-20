@@ -1,8 +1,0 @@
-{
-    "_id": "ObjectId('candidate_id123')",
-    "name": "Alice Johnson",
-    "party": "Independent",
-    "bio": "Experienced leader in community development.",
-    "votes": 0
-  }
-  
