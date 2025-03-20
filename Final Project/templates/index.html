@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Vote Now</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<body>
-    <h1>Welcome to the Voting System</h1>
-    {% if session.username %}
-        <p>Logged in as: {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a></p>
-        <h2>Vote for a Candidate</h2>
-        <form action="{{ url_for('vote') }}" method="POST">
-            {% for candidate in candidates %}
-                <input type="radio" name="candidate" value="{{ candidate }}" required> {{ candidate }} <br>
-            {% endfor %}
-            <button type="submit">Vote</button>
-        </form>
-        <a href="{{ url_for('results') }}">View Results</a>
-    {% else %}
-        <a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a>
-    {% endif %}
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center">Vote for Your Favorite Candidate</h2>
+        <hr>
+
+        {% if 'username' in session %}
+            <p class="text-center">Welcome, <strong>{{ session['username'] }}</strong>!</p>
+            {% if user_voted %}
+                <p class="text-danger text-center">You have already voted.</p>
+            {% else %}
+                <form method="POST" action="{{ url_for('vote') }}" class="text-center">
+                    {% for candidate in candidates %}
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" name="candidate" value="{{ candidate }}" required>
+                            <label class="form-check-label">{{ candidate }}</label>
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary mt-3">Submit Vote</button>
+                </form>
+            {% endif %}
+            <a href="{{ url_for('logout') }}" class="btn btn-danger mt-3">Logout</a>
+        {% else %}
+            <p class="text-center">
+                <a href="{{ url_for('login') }}" class="btn btn-success">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+            </p>
+        {% endif %}
+
+        <hr>
+        <p class="text-center"><a href="{{ url_for('results') }}" class="btn btn-info">View Results</a></p>
+    </div>
 </body>
 </html>
