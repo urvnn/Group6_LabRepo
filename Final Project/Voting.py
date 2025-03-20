@@ -10,15 +10,6 @@ db = client["voters"]
 votes_collection = db["votes"]
 profiles_collection = db["profiles"]
 
-# Ensure candidates exist in the database
-def initialize_candidates():
-    candidates = ["Alice", "Bob", "Charlie"]
-    for candidate in candidates:
-        if not votes_collection.find_one({"name": candidate}):
-            votes_collection.insert_one({"name": candidate, "votes": 0})
-
-initialize_candidates()
-
 @app.route('/')
 def index():
     candidates = [c["name"] for c in votes_collection.find({}, {"_id": 0, "name": 1})]
@@ -33,8 +24,7 @@ def register():
             profiles_collection.insert_one({"username": username, "password": password})
             session["username"] = username
             return redirect(url_for("index"))
-        else:
-            return "Username already exists. Try another one."
+        return "Username already exists. Try another one."
     return render_template("register.html")
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -46,8 +36,7 @@ def login():
         if user:
             session["username"] = username
             return redirect(url_for("index"))
-        else:
-            return "Invalid credentials. Try again."
+        return "Invalid credentials. Try again."
     return render_template("login.html")
 
 @app.route('/logout')
