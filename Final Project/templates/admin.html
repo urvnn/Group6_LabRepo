@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <p>Welcome, Admin! <a href="{{ url_for('admin_logout') }}">Logout</a></p>
+
+    <h2>Add a New Candidate</h2>
+    <form action="{{ url_for('add_candidate') }}" method="POST">
+        <input type="text" name="name" placeholder="Candidate Name" required>
+        <input type="text" name="party" placeholder="Party" required>
+        <textarea name="bio" placeholder="Candidate Bio" required></textarea>
+        <button type="submit">Add Candidate</button>
+    </form>
+
+    <h2>Current Candidates</h2>
+    <ul>
+        {% for candidate in candidates %}
+            <li>{{ candidate.name }} ({{ candidate.party }}) - {{ candidate.bio }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Remove a Candidate</h2>
+    <form action="{{ url_for('remove_candidate') }}" method="POST">
+        <label for="candidate_name">Select Candidate:</label>
+        <select name="candidate_name" required>
+            {% for candidate in candidates %}
+                <option value="{{ candidate.name }}">{{ candidate.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Remove Candidate</button>
+    </form>
+
+
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
