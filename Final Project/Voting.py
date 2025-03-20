@@ -1,14 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
+bcrypt = Bcrypt(app)
 
 # Connect to MongoDB
 client = MongoClient("mongodb://localhost:27017/")
 db = client["voters"]
 votes_collection = db["votes"]
 profiles_collection = db["profiles"]
+
+def initialize_candidates():
+    candidates = ["Alice", "Bob", "Charlie"]
+    for candidate in candidates:
+        if not votes_collection.find_one({"name": candidate}):
+            votes_collection.insert_one({"name": candidate, "votes": 0})
+
+initialize_candidates()
 
 @app.route('/')
 def index():
@@ -20,11 +30,15 @@ def register():
     if request.method == 'POST':
         username = request.form.get("username")
         password = request.form.get("password")
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')  # Hash the password
+
+        # Check if username already exists
         if not profiles_collection.find_one({"username": username}):
-            profiles_collection.insert_one({"username": username, "password": password})
-            session["username"] = username
+            profiles_collection.insert_one({"username": username, "password": hashed_password})
+            session["username"] = username  # Log in the user
             return redirect(url_for("index"))
         return "Username already exists. Try another one."
+    
     return render_template("register.html")
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -32,11 +46,13 @@ def login():
     if request.method == 'POST':
         username = request.form.get("username")
         password = request.form.get("password")
-        user = profiles_collection.find_one({"username": username, "password": password})
-        if user:
+
+        user = profiles_collection.find_one({"username": username})
+        if user and bcrypt.check_password_hash(user["password"], password):  
             session["username"] = username
             return redirect(url_for("index"))
-        return "Invalid credentials. Try again."
+        return "Invalid username or password."
+
     return render_template("login.html")
 
 @app.route('/logout')
