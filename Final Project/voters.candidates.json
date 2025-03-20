@@ -1,9 +1,0 @@
-[{
-  "_id": {
-    "$oid": "67dc154db1161e5031fdeecf"
-  },
-  "name": "Jonathan",
-  "party": "Dependent",
-  "bio": "A",
-  "votes": 0
-}]
