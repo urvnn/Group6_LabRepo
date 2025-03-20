@@ -104,11 +104,29 @@ def remove_candidate():
 def vote():
     if "username" not in session:
         return redirect(url_for("login"))
+    
+    username = session["username"]
+    existing_vote = votes_collection.find_one({"user": username})
+
+    if existing_vote:
+        return redirect(url_for("already_voted"))  # Redirect to the already voted page
+
     candidate = request.form.get("candidate")
     candidate_doc = candidates_collection.find_one({"name": candidate})
+
     if candidate_doc:
-        votes_collection.insert_one({"user": session["username"], "candidate": candidate_doc["name"]})
-    return redirect(url_for("results"))
+        votes_collection.insert_one({"user": username, "candidate": candidate_doc["name"]})
+
+    return redirect(url_for("confirmation"))  # Ensure this points to the correct route
+
+@app.route('/confirmation')
+def confirmation():
+    return render_template("confirmation.html")
+
+
+@app.route('/already_voted')
+def already_voted():
+    return render_template("already_voted.html")
 
 @app.route('/results')
 def results():
